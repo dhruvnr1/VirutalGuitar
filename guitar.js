@@ -46,7 +46,7 @@ for (let s = numStrings - 1; s >= 0; s--) {
   svg.classList.add('string-svg');
   const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
   path.setAttribute('id', `string-path-${s}`);
-  path.setAttribute('d', 'M 0 30 L 2000 30'); // Initial path
+  path.setAttribute('d', 'M 0 20 L 2000 20'); // Initial path
   svg.appendChild(path);
   stringContainer.appendChild(svg);
 
@@ -125,7 +125,7 @@ function animateString(string, fret) {
         const elapsed = timestamp - startTime;
 
         const decay = Math.exp(-elapsed / (duration / 4));
-        let d = `M 0 30`;
+        let d = `M 0 20`;
 
         for (let x = 1; x < fretboardWidth; x++) {
             let yOffset = 0;
@@ -134,7 +134,7 @@ function animateString(string, fret) {
                 const wiggleFactor = (relativeX / (fretboardWidth - startX));
                 yOffset = wiggleFactor * Math.sin(relativeX / 10) * 10 * decay;
             }
-            d += ` L ${x} ${30 + yOffset}`;
+            d += ` L ${x} ${20 + yOffset}`;
         }
 
         path.setAttribute('d', d);
@@ -142,7 +142,7 @@ function animateString(string, fret) {
         if (elapsed < duration) {
             animationFrameIds[string] = requestAnimationFrame(draw);
         } else {
-            path.setAttribute('d', `M 0 30 L ${fretboardWidth} 30`);
+            path.setAttribute('d', `M 0 20 L ${fretboardWidth} 20`);
             delete animationFrameIds[string];
         }
     };
