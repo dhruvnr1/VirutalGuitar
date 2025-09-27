@@ -18,7 +18,7 @@ body {
 
 #fretboard-container {
   position: relative;
-  background-color: #333; /* Fretboard wood color */
+  background-color: #A0522D; /* Fretboard wood color */
   border-radius: 10px;
   padding: 20px 0;
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
@@ -82,11 +82,11 @@ body {
 
 .fret-marker {
   position: absolute;
-  height: 100%;
+  height: 200%;
   width: 4px; /* Fret thickness */
   background-color: #888;
   right: 0;
-  top: 0;
+  top: 10;
   z-index: -1; /* Behind the string */
 }
 
