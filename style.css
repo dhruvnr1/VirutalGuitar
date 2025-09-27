@@ -1,0 +1,118 @@
+body {
+  background: #111;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden; /* Prevent scrollbars */
+}
+
+.container {
+  width: 95vw; /* 95% of viewport width */
+  margin: 0 auto;
+  text-align: center;
+}
+
+#fretboard-container {
+  position: relative;
+  background-color: #333; /* Fretboard wood color */
+  border-radius: 10px;
+  padding: 20px 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  flex-grow: 1; /* Allow fretboard to take up available space */
+}
+
+#guitar-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.open-notes-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 360px; /* 6 strings * 60px */
+  padding-right: 20px;
+}
+
+.open-note-label {
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.open-note-label:hover {
+  color: #ffc107; /* Highlight on hover */
+}
+
+.string-container {
+    position: relative;
+    height: 60px;
+}
+
+.string-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    stroke: #ddd;
+    stroke-width: 2px;
+    fill: none;
+}
+
+.string {
+  display: flex;
+  position: relative;
+  height: 100%;
+  align-items: center;
+  z-index: 2; /* Above the SVG */
+}
+
+.note {
+  height: 100%;
+  flex-grow: 1;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: transparent;
+  transition: background-color 0.2s;
+}
+
+.note:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.fret-marker {
+  position: absolute;
+  height: 100%;
+  width: 4px; /* Fret thickness */
+  background-color: #888;
+  right: 0;
+  top: 0;
+  z-index: -1; /* Behind the string */
+}
+
+/* Fret markers for visual guidance */
+.fret-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #888;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.highlight {
+    background-color: rgba(255, 193, 7, 0.5) !important;
+}
